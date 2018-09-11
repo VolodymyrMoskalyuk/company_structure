@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+              integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+              crossorigin="anonymous">
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+    <!-- this is header -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #49bda2;">
+        <a class="navbar-brand mb-0 h1" href="/">Company Structure</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/company">Company list</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">User list</a>
+                </li>
+            </ul>
+            <form action="/logout" method="post">
+                <!--<input type="hidden" name="_csrf" value="${_csrf.token}"/>-->
+                <button class="btn btn-dark mt-3" type="submit">Log in</button>
+            </form>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
