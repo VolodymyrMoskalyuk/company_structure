@@ -7,7 +7,7 @@
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Company name:</label>
         <div class="col-sm-5">
-            <input type="text" name="companyName" class="form-control" value="${company.companyName}">
+            <input type="text" readonly name="companyName" class="form-control" value="${company.companyName}">
         </div>
     </div>
     <div class="form-group row">

@@ -9,17 +9,17 @@
             <td><i class="fas fa-mobile"></i> +380974452418</td>
         </tr>
         <tr>
-            <td><i class="fas fa-envelope"></i> pitbullboks@gmail.com</td>
+            <td><i class="fas fa-envelope"></i> volodymyr.moskalyuk.it@gmail.com</td>
         </tr>
         <tr>
-            <td><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/volodymyr-moskalyuk-it/"
-                  style="text-decoration: none; color: black"> Volodymyr Moskalyuk </a>
+            <td> <a href="https://www.linkedin.com/in/volodymyr-moskalyuk-it/"
+                  style="text-decoration: none; color: black"><i class="fab fa-linkedin-in"></i> Volodymyr Moskalyuk </a>
             </td>
         </tr>
         <tr>
-            <td><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/junior.vova"
+            <td> <a href="https://www.facebook.com/junior.vova"
                                                      style="text-decoration: none;color: black">
-                Vova Junior</a>
+                <i class="fab fa-facebook-f"></i> Vova Junior</a>
             </td>
         </tr>
         </tbody>

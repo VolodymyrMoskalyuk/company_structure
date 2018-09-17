@@ -7,14 +7,20 @@
     Search Company
 </a>
 
-<div class="collapse" id="collapseAdd">
+<div class="collapse <#if filter!="">show</#if>" id="collapseAdd">
     <div class="form-group mt-3 ">
         <div class="form-row">
             <div class="form-group">
                 <form method="get" action="/company" class="form-inline" style="width: 22em">
-                    <input type="text" name="filter" class="form-control ml-1 col-sm-8" value="${filter?ifExists}"
+                    <input type="text" name="filter"  value="${filter?ifExists}"
+                           class="form-control ml-1 col-sm-8 ${(filterError??)?string('is-invalid', '')}"
                            placeholder="Search by company name">
                     <button type="submit" class="btn btn-info ml-2">Search</button>
+                    <#if filterError??>
+                    <div class="invalid-feedback ml-1">
+                        ${filterError}
+                    </div>
+                    </#if>
                 </form>
             </div>
         </div>

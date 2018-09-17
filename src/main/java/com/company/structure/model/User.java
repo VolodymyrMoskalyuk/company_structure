@@ -22,9 +22,6 @@ public class User implements UserDetails {
     private String email;
     @NotBlank(message = "Password can`t be empty")
     private String password;
-    @Transient
-    @NotBlank(message = "Password confirmation can`t be empty")
-    private String passwordConfirmation;
     private boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
@@ -71,14 +68,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public String getPasswordConfirmation() {
-        return passwordConfirmation;
-    }
-
-    public void setPasswordConfirmation(String passwordConfirmation) {
-        this.passwordConfirmation = passwordConfirmation;
-    }
-
     public boolean isActive() {
         return active;
     }
@@ -94,8 +83,6 @@ public class User implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
-//----------------------------------------
 
 
     @Override
@@ -122,4 +109,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return isActive();
     }
+
+
 }

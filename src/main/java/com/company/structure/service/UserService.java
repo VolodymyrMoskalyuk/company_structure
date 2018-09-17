@@ -35,7 +35,7 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public void addUser(User user){
+    public void addUser(User user) {
         user.setEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setActive(true);
@@ -55,21 +55,26 @@ public class UserService implements UserDetailsService {
 
         if (!StringUtils.isEmpty(password) && !StringUtils.isEmpty(confPassword)) {
             if (password.equals(confPassword)) {
-                user.setPassword(password);
+                user.setPassword(passwordEncoder.encode(password));
             }
         }
+
         userRepository.save(user);
     }
 
-    public User findByUserName(String userName){
+    public User findByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
 
-    public List<User> findAll() {
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public void save(User user, String userName, Map<String,String> form, boolean active) {
+    public void save(User user, String userName, Map<String, String> form, boolean active) {
         user.setUsername(userName);
         user.setActive(active);
 
@@ -80,7 +85,7 @@ public class UserService implements UserDetailsService {
         user.getRoles().clear();
 
         for (String key : form.keySet()) {
-            if (roles.contains(key)){
+            if (roles.contains(key)) {
                 user.getRoles().add(Role.valueOf(key));
             }
         }

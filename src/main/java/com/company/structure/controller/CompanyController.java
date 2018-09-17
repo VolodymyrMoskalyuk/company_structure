@@ -28,12 +28,16 @@ public class CompanyController {
     public String list(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
         List<Company> companies;
         List<Company> search = new ArrayList<>();
+        Company companyFromDB = companyService.findByName(filter);
 
-        if (!filter.equals("") && !filter.isEmpty()) {
-            search.add(companyService.findByName(filter));
+        if (!filter.equals("") && !filter.isEmpty() && companyFromDB != null) {
+            search.add(companyFromDB);
             companies = search;
         } else {
             companies = companyService.listOfCompanies();
+            if (companyFromDB == null && !filter.equals("")) {
+                model.addAttribute("filterError", "Can`t find company with this name");
+            }
         }
 
         model.addAttribute("companies", companies);
@@ -66,7 +70,9 @@ public class CompanyController {
                          @Valid Company company,
                          BindingResult bindingResult, Model model) {
 
-        if (bindingResult.hasErrors()) {
+        if (companyService.findByName(company.getCompanyName()) != null) {
+            model.addAttribute("companyNameError", "This company already in our system!!!");
+        } else if (bindingResult.hasErrors()) {
             Map<String, String> errorMap = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errorMap);
         } else if (company.getEarnings() == null) {

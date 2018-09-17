@@ -3,7 +3,7 @@
 
 <@c.page>
     <#if success??>
-        <div class="alert alert-success" role="alert" style="text-align: center; font-size: 2em; margin-top: 12em;">
+        <div class="alert alert-success" role="alert" style="text-align: center; font-size: 2em; margin-top: 8em;">
              <a href="\login">${success?ifExists}</a>
         </div>
     </#if>
